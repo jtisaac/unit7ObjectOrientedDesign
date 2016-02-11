@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class ButtonViewer
 {
-    private static final int FRAME_WIDTH = 100;
-    private static final int FRAME_HEIGHT = 60;
+    private static final int FRAME_WIDTH = 1000;
+    private static final int FRAME_HEIGHT = 600;
 
     private JFrame frame;
     private JPanel panel;
