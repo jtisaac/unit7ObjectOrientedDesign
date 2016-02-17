@@ -1,23 +1,23 @@
 
 
 /**
- * Write a description of class ClickCount here.
+ * Write a description of class Viewer here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ClickCount
+public class Viewer
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int clickCount;
+    private int x;
 
     /**
-     * Default constructor for objects of class ClickCount
+     * Default constructor for objects of class Viewer
      */
-    public ClickCount()
+    public Viewer()
     {
-        clickCount = 0;
-        
+        // initialise instance variables
+        x = 0;
     }
 
     /**
