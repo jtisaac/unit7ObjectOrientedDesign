@@ -11,11 +11,7 @@ public class DrawingEditor extends JFrame
 {
     /** description of instance variable x (add comment for each instance variable) */
     
-    private JFrame daframe;
-    private JPanel dapanel;
-    private JButton pickcolor;
-    private JButton addcircle;
-    private JButton addsquare;
+    
     
     private static final int FRAMEHEIGHT = 800;
     private static final int FRAMEWIDTH = 1000;
@@ -25,10 +21,9 @@ public class DrawingEditor extends JFrame
     public DrawingEditor()
     {
         String title = "Drawing Editor";
-        this.daframe = new JFrame(title);
-        this.dapanel = new JPanel();
-        DrawingPanel canvas = new DrawingPanel();
-        ControlPanel controls = new ControlPanel();
+        this.setTitle(title);
+        //DrawingPanel canvas = new DrawingPanel();
+        ControlPanel controls = new ControlPanel(canvas);
     }
 
     /**

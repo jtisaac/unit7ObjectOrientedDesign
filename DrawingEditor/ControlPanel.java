@@ -1,23 +1,30 @@
-
-
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.Button;
 /**
  * Write a description of class ControlPanel here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ControlPanel
+public class ControlPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    
 
     /**
      * Default constructor for objects of class ControlPanel
      */
-    public ControlPanel()
+    public ControlPanel(DrawingPanel canvas)
     {
-        // initialise instance variables
-        x = 0;
+        JButton pickcolor = new JButton( "Pick Color" );
+        this.add( pickcolor );
+        JButton addcircle = new JButton( "Add Circle" );
+        this.add( addcircle );
+        JButton addsquare = new JButton( " Add Square" );
+        this.add( addsquare );
     }
 
     /**
@@ -31,10 +38,10 @@ public class ControlPanel
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public int sampleMethod(int y)
+    public void sampleMethod(int y)
     {
         // put your code here
-        return x+y;
+        
     }
 
 }
