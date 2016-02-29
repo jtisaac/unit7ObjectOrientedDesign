@@ -1,11 +1,12 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.BorderLayout;
 /**
  * Write a description of class DrawingEditor here.
  * border layout class
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Joseph Isaac) 
+ * @version (2/29/15)
  */
 public class DrawingEditor extends JFrame
 {
@@ -20,10 +21,18 @@ public class DrawingEditor extends JFrame
      */
     public DrawingEditor()
     {
+        
+        //set size
+        //default close
+        //set visible
         String title = "Drawing Editor";
         this.setTitle(title);
-        //DrawingPanel canvas = new DrawingPanel();
+        DrawingPanel canvas = new DrawingPanel();
         ControlPanel controls = new ControlPanel(canvas);
+        this.add(canvas, BorderLayout.CENTER);
+        this.add(controls, BorderLayout.SOUTH);
+        this.setSize(1000,500);
+        this.setVisible(true);
     }
 
     /**
@@ -37,9 +46,9 @@ public class DrawingEditor extends JFrame
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public void sampleMethod(int y)
+    public static void main()
     {
-        // put your code here
+        DrawingEditor cool = new DrawingEditor();
         
     }
 

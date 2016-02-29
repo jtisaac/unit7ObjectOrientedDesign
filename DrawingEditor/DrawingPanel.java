@@ -1,4 +1,4 @@
-
+import javax.swing.JPanel;
 
 /**
  * Write a description of class DrawingPaneel here.
@@ -6,7 +6,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DrawingPanel
+public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
     private int x;
