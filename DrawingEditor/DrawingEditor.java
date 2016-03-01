@@ -33,6 +33,7 @@ public class DrawingEditor extends JFrame
         this.add(controls, BorderLayout.SOUTH);
         this.setSize(1000,500);
         this.setVisible(true);
+        this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
     /**

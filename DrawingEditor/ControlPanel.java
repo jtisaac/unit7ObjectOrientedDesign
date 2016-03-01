@@ -3,6 +3,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 /**
  * Write a description of class ControlPanel here.
  * 
@@ -12,21 +15,47 @@ import java.awt.Button;
 public class ControlPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    
-
+    private JButton pickcolor;
+    private JButton addcircle;
+    private JButton addsquare;
+    private JPanel color;
+    private DrawingPanel canvas;
     /**
      * Default constructor for objects of class ControlPanel
      */
     public ControlPanel(DrawingPanel canvas)
     {
-        JButton pickcolor = new JButton( "Pick Color" );
+        this.canvas = canvas;
+        this.pickcolor = new JButton( "Pick Color" );
         this.add( pickcolor );
-        JButton addcircle = new JButton( "Add Circle" );
+        this.addcircle = new JButton( "Add Circle" );
         this.add( addcircle );
-        JButton addsquare = new JButton( " Add Square" );
+        addsquare = new JButton( " Add Square" );
         this.add( addsquare );
+        color = new JPanel();
+        this.add(color);
+        ClickListener listener = new ClickListener();
+        this.pickcolor.addActionListener( listener );
+        
+        this.addcircle.addActionListener( listener );
+        
+        this.addsquare.addActionListener( listener );
     }
+    public class ClickListener implements ActionListener
+    {
+        //private String name;
 
+        //public ClickListener(String buttonName)
+        //{
+        //  this.name = buttonName;
+        //}
+
+        public void actionPerformed( ActionEvent event )
+        {
+            //label.setText("Button" + event.getActionCommand()+ "Was clicked");
+            
+        }
+    }
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -41,7 +70,7 @@ public class ControlPanel extends JPanel
     public void sampleMethod(int y)
     {
         // put your code here
-        
+
     }
 
 }
