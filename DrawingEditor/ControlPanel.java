@@ -6,6 +6,12 @@ import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import java.awt.Graphics;
+import javax.swing.JColorChooser;
+import java.awt.Color;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+
 /**
  * Write a description of class ControlPanel here.
  * 
@@ -40,6 +46,8 @@ public class ControlPanel extends JPanel
         this.addcircle.addActionListener( listener );
         
         this.addsquare.addActionListener( listener );
+        Color c = this.canvas.getColor();//Color.WHITE; 
+        //this.canvas.pickColor(c);
     }
     public class ClickListener implements ActionListener
     {
@@ -49,28 +57,35 @@ public class ControlPanel extends JPanel
         //{
         //  this.name = buttonName;
         //}
-
         public void actionPerformed( ActionEvent event )
         {
             //label.setText("Button" + event.getActionCommand()+ "Was clicked");
-            
+            //if (event == "Pick Color")
+            //{
+                
+            }
+        
+        }
+    public class MouseClickListener implements MouseListener
+    {
+        public void mouseClicked( MouseEvent event )
+        {
+            //setPoint( event.getX(), event.getY() );
+        }
+        public void mouseEntered( MouseEvent event )
+        {
+        }
+        
+        public void mouseExited( MouseEvent event )
+        {
+        }
+        
+        public void mousePressed( MouseEvent event )
+        {
+        }
+        
+        public void mouseReleased( MouseEvent event )
+        {
         }
     }
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public void sampleMethod(int y)
-    {
-        // put your code here
-
-    }
-
 }
