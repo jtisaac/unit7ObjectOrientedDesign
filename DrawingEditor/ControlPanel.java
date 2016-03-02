@@ -11,6 +11,7 @@ import javax.swing.JColorChooser;
 import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 /**
  * Write a description of class ControlPanel here.
@@ -26,6 +27,7 @@ public class ControlPanel extends JPanel
     private JButton addsquare;
     private JPanel color;
     private DrawingPanel canvas;
+    private ButtonListener listener;
     /**
      * Default constructor for objects of class ControlPanel
      */
@@ -40,52 +42,37 @@ public class ControlPanel extends JPanel
         this.add( addsquare );
         color = new JPanel();
         this.add(color);
-        ClickListener listener = new ClickListener();
+        listener = new ButtonListener();
         this.pickcolor.addActionListener( listener );
-        
+        //this.pickcolor.addActionMotionListener( listener );
         this.addcircle.addActionListener( listener );
-        
+        //this.pickcolor.addMouseMotionListener( listener );
+        this.pickcolor.addActionListener( listener );
         this.addsquare.addActionListener( listener );
+        //this.addsquare.addMouseMotionListener( listener );
         Color c = this.canvas.getColor();//Color.WHITE; 
         //this.canvas.pickColor(c);
     }
-    public class ClickListener implements ActionListener
-    {
-        //private String name;
 
-        //public ClickListener(String buttonName)
-        //{
-        //  this.name = buttonName;
-        //}
+    public class ButtonListener implements ActionListener
+    {
         public void actionPerformed( ActionEvent event )
         {
-            //label.setText("Button" + event.getActionCommand()+ "Was clicked");
-            //if (event == "Pick Color")
-            //{
-                
+            if (event.getActionCommand().equals("Pick Color"))
+            {
+                System.out.println("Picking Color");
+                canvas.pickColor();
             }
-        
-        }
-    public class MouseClickListener implements MouseListener
-    {
-        public void mouseClicked( MouseEvent event )
-        {
-            //setPoint( event.getX(), event.getY() );
-        }
-        public void mouseEntered( MouseEvent event )
-        {
-        }
-        
-        public void mouseExited( MouseEvent event )
-        {
-        }
-        
-        public void mousePressed( MouseEvent event )
-        {
-        }
-        
-        public void mouseReleased( MouseEvent event )
-        {
+            else if (event.getActionCommand().equals("Add Circle"))
+            {
+                System.out.println("Adding Circle");
+                canvas.addCircle();
+            }
+            else 
+            {
+                System.out.println("Adding Square");
+                canvas.addSquare();
+            }
         }
     }
 }

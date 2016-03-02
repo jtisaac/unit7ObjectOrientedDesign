@@ -3,6 +3,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Dimension;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Graphics;
+import javax.swing.JColorChooser;
+import java.awt.Color;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 /**
  * Write a description of class DrawingPaneel here.
  * 
@@ -123,4 +137,40 @@ public class DrawingPanel extends JPanel
         Dimension dim = new Dimension(100,100);// put your code here
         return dim;
     }
+    public class ClickListener implements MouseListener, MouseMotionListener
+    {
+        //private String name;
+
+        //public ClickListener(String buttonName)
+        //{
+        //  this.name = buttonName;
+        //}
+        
+        public void mouseClicked( MouseEvent event )
+        {
+            //setPoint( event.getX(), event.getY() );
+        }
+        public void mouseEntered( MouseEvent event )
+        {
+        }
+        
+        public void mouseExited( MouseEvent event )
+        {
+        }
+        
+        public void mousePressed( MouseEvent event )
+        {
+        }
+        
+        public void mouseReleased( MouseEvent event )
+        {
+        }
+        public void mouseDragged(MouseEvent e)
+        {
+            
+        }
+        public void mouseMoved(MouseEvent e)
+        {
+        }
+        }
 }
