@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+//import java.util.ArrayList.Size;
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D;
 import java.awt.Color;
@@ -135,8 +136,9 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        for (Shape ape : shapes)
+        for(int x = shapes.size()-1; x >= 0; x--)
         {
+            Shape ape = shapes.get(x);
             if (currShape == null)
             {
                 ape.draw(g2, true);
@@ -150,6 +152,7 @@ public class DrawingPanel extends JPanel
                 ape.draw(g2, true);
             }
         }
+
     }
 
     /**
@@ -230,16 +233,20 @@ public class DrawingPanel extends JPanel
                 {
                     currShape = ape;
                     currShape.move(x,y);
-                    
+                    System.out.println("The cursor is inside the shape!");
                 }
                 else if (ape.isOnBorder(coord))
                 {
+                    System.out.println("The cursor is on the border!");
                     Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
                     currShape.setRadius(Math.pow(semi,0.5));
                 }
-
-                repaint();
+                else
+                {
+                }
+                
             }
+            repaint();
         }
 
         public void mouseMoved(MouseEvent event)
