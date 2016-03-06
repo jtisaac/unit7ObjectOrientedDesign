@@ -17,8 +17,14 @@ import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.lang.Math;
 /**
- * Write a description of class DrawingPaneel here.
+ * Write a description of class DrawingPanel here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -26,15 +32,24 @@ import java.awt.event.MouseMotionListener;
 public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private ArrayList<Shape> shapes;
+    private Color currColor;
+    private Dimension dim;
 
+    private Shape currShape;
     /**
      * Default constructor for objects of class DrawingPaneel
      */
     public DrawingPanel()
     {
-        // initialise instance variables
-        x = 0;
+        this.shapes = new ArrayList<Shape>(); 
+        //this.currColor = Color.blue;
+        this.setBackground(Color.WHITE);
+        this.dim = new Dimension(1000, 1000);
+
+        //adds clicking and motion listening
+        this.addMouseListener(new ClickListener());
+        this.addMouseMotionListener(new ClickListener());
     }
 
     /**
@@ -51,7 +66,7 @@ public class DrawingPanel extends JPanel
     public Color getColor()
     {
         // put your code here
-        return Color.white;
+        return currColor;
     }
 
     /**
@@ -68,7 +83,7 @@ public class DrawingPanel extends JPanel
     public void pickColor()
     {
         // put your code here
-        
+        currColor = JColorChooser.showDialog(this, "Pick Color", currColor);
     }
 
     /**
@@ -85,7 +100,7 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         // put your code here
-        
+        shapes.add(new Circle(new Point2D.Double(100,100), 100, currColor));
     }
 
     /**
@@ -102,7 +117,7 @@ public class DrawingPanel extends JPanel
     public void addSquare()
     {
         // put your code here
-        
+        shapes.add(new Square(new Point2D.Double(150,150), 100, currColor));
     }
 
     /**
@@ -118,9 +133,25 @@ public class DrawingPanel extends JPanel
      */
     public void paintComponent(Graphics g)
     {
-        // put your code here
-        
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (Shape ape : shapes)
+        {
+            if (currShape == null)
+            {
+                ape.draw(g2, true);
+            }
+            else if (currShape == ape)
+            {
+                ape.draw(g2, false);//, currShape
+            }
+            else
+            {
+                ape.draw(g2, true);
+            }
+        }
     }
+
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -145,32 +176,74 @@ public class DrawingPanel extends JPanel
         //{
         //  this.name = buttonName;
         //}
-        
+        public boolean selected;
         public void mouseClicked( MouseEvent event )
         {
-            //setPoint( event.getX(), event.getY() );
+
         }
+
         public void mouseEntered( MouseEvent event )
         {
         }
-        
+
         public void mouseExited( MouseEvent event )
         {
         }
-        
+
         public void mousePressed( MouseEvent event )
-        {
+        {   int x = event.getX();
+            int y = event.getY();
+            Point2D.Double coord = new Point2D.Double(x,y);
+            selected = false;
+            for (Shape ape: shapes)
+            {
+                if (ape.isInside(coord))
+                {
+                    selected = true;
+                    currShape = ape;
+                }
+
+            }
+            if (selected == false)
+            {
+                currShape = null;
+            }
+            //g2.unfill(currShape);
+            if (selected == true)
+            {
+                repaint();
+            }
         }
-        
+
         public void mouseReleased( MouseEvent event )
         {
         }
-        public void mouseDragged(MouseEvent e)
+
+        public void mouseDragged(MouseEvent event)
         {
-            
+            int x = event.getX();
+            int y = event.getY();
+            Point2D.Double coord = new Point2D.Double(x,y);
+            for (Shape ape: shapes)
+            {
+                if (ape.isInside(coord))
+                {
+                    currShape = ape;
+                    currShape.move(x,y);
+                    
+                }
+                else if (ape.isOnBorder(coord))
+                {
+                    Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
+                    currShape.setRadius(Math.pow(semi,0.5));
+                }
+
+                repaint();
+            }
         }
-        public void mouseMoved(MouseEvent e)
+
+        public void mouseMoved(MouseEvent event)
         {
         }
-        }
+    }
 }

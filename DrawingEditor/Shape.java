@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Shape
+abstract public class Shape
 {
     /** description of instance variable x (add comment for each instance variable) */
     private Point2D.Double center;
@@ -35,13 +35,16 @@ public class Shape
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    
-    public void getCenter()//Point2D.Double getCenter()
+
+    public Point2D.Double getCenter()//Point2D.Double getCenter()
     {
         // put your code here
-        //return nothing;
+        return center;
     }
-
+    public Color getColor()
+    {
+        return color;
+    }
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -56,7 +59,7 @@ public class Shape
     public double getRadius()
     {
         // put your code here
-        return 100;
+        return radius;
     }
 
     /**
@@ -72,8 +75,7 @@ public class Shape
      */
     public void move(double x , double y)
     {
-        // put your code here
-        
+        center = new Point2D.Double(x,y);
     }
 
     /**
@@ -89,8 +91,8 @@ public class Shape
      */
     public void setRadius(double r)
     {
-        // put your code here
-        
+        radius = r;
+
     }
 
     /**
@@ -104,11 +106,8 @@ public class Shape
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public boolean isInside(Point2D.Double point)
-    {
-        // put your code here
-        return true;
-    }
+    abstract public boolean isInside(Point2D.Double point);
+
 
     /**
      * An example of a method - replace this comment with your own
@@ -121,11 +120,8 @@ public class Shape
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public boolean isOnBorder(Point2D.Double point)
-    {
-        // put your code here
-        return true;
-    }
+    abstract public boolean isOnBorder(Point2D.Double point);
+    
 
     /**
      * An example of a method - replace this comment with your own
@@ -138,9 +134,6 @@ public class Shape
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public void draw(Graphics2D g2, boolean filled)
-    {
-        // put your code here
-        
-    }
+    abstract public void draw(Graphics2D g2, boolean filled);
+
 }
