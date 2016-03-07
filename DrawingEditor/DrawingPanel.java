@@ -100,7 +100,7 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         // put your code here
-        shapes.add(new Circle(new Point2D.Double(100,100), 100, currColor));
+        shapes.add(new Circle(new Point2D.Double(100,100), 50, currColor));
     }
 
     /**
@@ -117,7 +117,7 @@ public class DrawingPanel extends JPanel
     public void addSquare()
     {
         // put your code here
-        shapes.add(new Square(new Point2D.Double(150,150), 100, currColor));
+        shapes.add(new Square(new Point2D.Double(150,150), 50, currColor));
     }
 
     /**
@@ -179,7 +179,35 @@ public class DrawingPanel extends JPanel
         public boolean selected;
         public void mouseClicked( MouseEvent event )
         {
+            int x = event.getX();
+            int y = event.getY();
+            Point2D.Double coord = new Point2D.Double(x,y);
+            boolean alreadytoggled = true;
+            for (Shape ape: shapes)
+            {
+                boolean isinside = ape.isInside(coord);
+                if (isinside == true && alreadytoggled == true)
+                {
+                    currShape = ape;
+                    currShape.move(x,y);
 
+                }
+                else if (ape.isOnBorder(coord) || alreadytoggled == false)
+                {
+                    //while (ape.isOnBorder(coord) == true)
+                    //{//Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
+                        //currShape.setRadius(Math.pow(semi,0.5));
+                        
+                        System.out.println("The cursor is on the border!");
+                        double r = ape.getRadius();
+                        ape.setRadius(r+1);
+                        repaint();
+                        alreadytoggled = false;
+                    //}
+                }
+                
+                repaint();
+            }
         }
 
         public void mouseEntered( MouseEvent event )
@@ -191,28 +219,7 @@ public class DrawingPanel extends JPanel
         }
 
         public void mousePressed( MouseEvent event )
-        {   int x = event.getX();
-            int y = event.getY();
-            Point2D.Double coord = new Point2D.Double(x,y);
-            selected = false;
-            for (Shape ape: shapes)
-            {
-                if (ape.isInside(coord))
-                {
-                    selected = true;
-                    currShape = ape;
-                }
-
-            }
-            if (selected == false)
-            {
-                currShape = null;
-            }
-            //g2.unfill(currShape);
-            if (selected == true)
-            {
-                repaint();
-            }
+        {   
         }
 
         public void mouseReleased( MouseEvent event )
@@ -224,20 +231,30 @@ public class DrawingPanel extends JPanel
             int x = event.getX();
             int y = event.getY();
             Point2D.Double coord = new Point2D.Double(x,y);
+            
             for (Shape ape: shapes)
             {
-                if (ape.isInside(coord))
+                boolean isinside = ape.isInside(coord);
+                if (isinside == true)
                 {
                     currShape = ape;
                     currShape.move(x,y);
-                    
+
                 }
                 else if (ape.isOnBorder(coord))
                 {
-                    Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
-                    currShape.setRadius(Math.pow(semi,0.5));
+                    //while (ape.isOnBorder(coord) == true)
+                    //{//Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
+                        //currShape.setRadius(Math.pow(semi,0.5));
+                        
+                        System.out.println("The cursor is on the border!");
+                        double r = ape.getRadius();
+                        ape.setRadius(r+1);
+                        repaint();
+                        
+                    //}
                 }
-
+                isinside = false;
                 repaint();
             }
         }

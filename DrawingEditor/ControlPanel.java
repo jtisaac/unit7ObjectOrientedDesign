@@ -54,7 +54,7 @@ public class ControlPanel extends JPanel
         
         this.pickcolor.addActionListener( listener );
         this.addcircle.addActionListener( listener );
-        this.pickcolor.addActionListener( listener );
+        
         this.addsquare.addActionListener( listener );
         
         //Color c = this.canvas.getColor();//Color.WHITE; 

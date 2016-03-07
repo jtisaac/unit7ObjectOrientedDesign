@@ -36,7 +36,7 @@ public class Square extends Shape
     public boolean isInside(Point2D.Double point)
     {
         //rect = new Rectangle2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
-        return rect.contains(point.getX(),point.getY());
+        return rect.contains(point);
     }
 
     /**
@@ -52,20 +52,15 @@ public class Square extends Shape
      */
     public boolean isOnBorder(Point2D.Double point)
     {   
-        //rect = new Rectangle2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
+        rect = new Rectangle2D.Double(this.getCenter().getX() , this.getCenter().getY() , 2*this.getRadius(), 2*this.getRadius());
         //Double dist = new Double(Math.pow(Math.pow((this.getCenter().getX()-point.getX()),2)+Math.pow((this.getCenter().getY()-point.getY()),2),0.5));
         //if (dist > getRadius()-5 && dist < getRadius() + 3)
         //{
         //    return true;
         //}
         //return false;
-        rect = new Rectangle2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
-        //int ydiff = 
-        if ( 1 < 5 )
-        {
-            return true;
-        }
-        return false;
+        Rectangle2D.Double rekt = new Rectangle2D.Double(point.getX()-15,point.getY()-15,15,15);
+        return rect.intersects(rekt);
     }
 
     //public void move(double x , double y)

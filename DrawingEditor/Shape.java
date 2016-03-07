@@ -1,6 +1,12 @@
 import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.*;
+//import java.awt.geom.Rectangle2D.Double;
+import java.lang.Math;
+import java.awt.*;
+import java.awt.geom.*;
+import java.lang.Math;
 /**
  * Write a description of class Shape here.
  * 
@@ -17,9 +23,14 @@ abstract public class Shape
     /**
      * Default constructor for objects of class Shape
      */
-    public Shape(Point2D.Double center, double radius,Color color)
+    public Shape(Point2D.Double offcenter, double radius,Color color)
     {
-        this.center = center;
+        Point2D.Double phemadaour = new Point2D.Double(offcenter.getX()-radius,offcenter.getY()-radius);
+        this.center = phemadaour;
+        System.out.println(offcenter.getX());
+        System.out.println(offcenter.getY());
+        System.out.println(radius);
+        //this.center = offcenter; 
         this.radius = radius;
         this.color = color;
     }
@@ -41,10 +52,12 @@ abstract public class Shape
         // put your code here
         return center;
     }
+
     public Color getColor()
     {
         return color;
     }
+
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -75,7 +88,8 @@ abstract public class Shape
      */
     public void move(double x , double y)
     {
-        center = new Point2D.Double(x,y);
+        center = new Point2D.Double(x-radius,y-radius);
+        System.out.println(center);
     }
 
     /**
@@ -108,7 +122,6 @@ abstract public class Shape
      */
     abstract public boolean isInside(Point2D.Double point);
 
-
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -121,6 +134,8 @@ abstract public class Shape
      * @return    description of the return value
      */
     abstract public boolean isOnBorder(Point2D.Double point);
+    
+        
     
 
     /**

@@ -38,10 +38,10 @@ public class Circle extends Shape
         //Double dist = new Double(Math.pow(Math.pow((this.getCenter().getX()-point.getX()),2)+Math.pow((this.getCenter().getY()-point.getY()),2),0.5));
         //if (dist < this.getRadius()-5)
         //{
-            //return true; 
+        //return true; 
         //}
         //circle = new Ellipse2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
-        return circle.contains(point.getX(),point.getY());//false;
+        return circle.contains(point);//false;
     }
 
     /**
@@ -57,21 +57,23 @@ public class Circle extends Shape
      */
     public boolean isOnBorder(Point2D.Double point)
     {   
-        circle = new Ellipse2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
+        ////circle = new Ellipse2D.Double(this.getCenter().getX() - this.getRadius(), this.getCenter().getY() - this.getRadius(), 2*this.getRadius(), 2*this.getRadius());
         //Double dist = new Double(Math.pow(Math.pow((this.getCenter().getX()-point.getX()),2)+Math.pow((this.getCenter().getY()-point.getY()),2),0.5));
         //if (dist > getRadius()-5 && dist < getRadius() + 3)
         //{
         //    return true;
         //}
         //return false;
-        Double semi = new Double(Math.pow(this.getCenter().getX()-point.getX(),2)+Math.pow(this.getCenter().getY()-point.getY(),2));
-        Double ptrad = new Double(Math.pow(semi,0.5));
-        Double diff = Math.abs(this.getRadius()-ptrad);
-        if ( diff < 5 )
-        {
-            return true;
-        }
-        return false;
+        ////Double semi = new Double(Math.pow(this.getCenter().getX()-point.getX(),2)+Math.pow(this.getCenter().getY()-point.getY(),2));
+        ////Double ptrad = new Double(Math.pow(semi,0.5));
+        ////Double diff = Math.abs(this.getRadius()-ptrad);
+        ////if ( diff < 5 )
+        ////{
+        ////return true;
+        ////}
+        ////return false;
+        Rectangle2D.Double rekt = new Rectangle2D.Double(point.getX()-15,point.getY()-15,15,15);
+        return circle.intersects(rekt);
     }
     //public void move(double x , double y)
     //{
