@@ -20,6 +20,7 @@ import java.awt.event.MouseMotionListener;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
 //import java.util.ArrayList.Size;
 import java.awt.geom.Point2D;
@@ -137,6 +138,7 @@ public class DrawingPanel extends JPanel
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         for(int x = shapes.size()-1; x >= 0; x--)
@@ -215,6 +217,7 @@ public class DrawingPanel extends JPanel
         }
         public void mouseDragged(MouseEvent e)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
