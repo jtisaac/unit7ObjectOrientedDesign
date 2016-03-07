@@ -24,6 +24,8 @@ package.numDependencies=6
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
+=======
+>>>>>>> parent of d3635bc... Almost done
 objectbench.width=804
 package.editor.height=838
 package.editor.width=706
@@ -34,6 +36,7 @@ package.numDependencies=3
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
@@ -51,6 +54,8 @@ target1.editor.height=1014
 target1.editor.width=1688
 target1.editor.x=-4
 target1.editor.y=-4
+=======
+>>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
 =======
@@ -78,6 +83,8 @@ target2.editor.y=-4
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
+=======
+>>>>>>> parent of d3635bc... Almost done
 target1.x=200
 target1.y=430
 target2.editor.height=1010
@@ -87,6 +94,8 @@ target2.editor.y=970
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+>>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
@@ -134,6 +143,10 @@ target4.editor.y=0
 target4.editor.x=840
 target4.editor.y=0
 >>>>>>> parent of d3635bc... Almost done
+=======
+target4.editor.x=840
+target4.editor.y=0
+>>>>>>> parent of d3635bc... Almost done
 target4.height=50
 target4.name=ControlPanel
 target4.naviview.expanded=false
@@ -155,6 +168,8 @@ target5.editor.x=840
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
+=======
+>>>>>>> parent of d3635bc... Almost done
 target4.x=340
 target4.y=200
 target5.editor.height=1010
@@ -162,6 +177,9 @@ target5.editor.width=840
 target5.editor.x=0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done

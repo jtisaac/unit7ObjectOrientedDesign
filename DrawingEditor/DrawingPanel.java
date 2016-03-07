@@ -34,6 +34,8 @@ import java.lang.Math;
 >>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
+=======
+>>>>>>> parent of d3635bc... Almost done
 /**
  * Write a description of class DrawingPaneel here.
  * 
@@ -170,6 +172,10 @@ public class DrawingPanel extends JPanel
         // put your code here
         
 >>>>>>> parent of d3635bc... Almost done
+=======
+        // put your code here
+        
+>>>>>>> parent of d3635bc... Almost done
     }
     /**
      * An example of a method - replace this comment with your own
@@ -244,6 +250,9 @@ public class DrawingPanel extends JPanel
                 
             }
             repaint();
+=======
+            
+>>>>>>> parent of d3635bc... Almost done
 =======
             
 >>>>>>> parent of d3635bc... Almost done
