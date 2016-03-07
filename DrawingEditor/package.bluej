@@ -10,6 +10,7 @@ dependency3.to=DrawingPanel
 dependency3.type=UsesDependency
 objectbench.height=76
 <<<<<<< HEAD
+<<<<<<< HEAD
 objectbench.width=1660
 package.editor.height=853
 package.editor.width=1560
@@ -17,22 +18,30 @@ package.editor.x=-4
 package.editor.y=-4
 package.numDependencies=6
 =======
+=======
+>>>>>>> parent of d3635bc... Almost done
 objectbench.width=804
 package.editor.height=838
 package.editor.width=706
 package.editor.x=0
 package.editor.y=0
 package.numDependencies=3
+<<<<<<< HEAD
+>>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 package.numTargets=6
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
 <<<<<<< HEAD
+<<<<<<< HEAD
 target1.editor.height=1014
 target1.editor.width=1688
 target1.editor.x=-4
 target1.editor.y=-4
+=======
+>>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
 target1.height=50
@@ -42,6 +51,7 @@ target1.type=ClassTarget
 target1.typeParameters=
 target1.width=80
 <<<<<<< HEAD
+<<<<<<< HEAD
 target1.x=70
 target1.y=590
 target2.editor.height=1014
@@ -49,12 +59,17 @@ target2.editor.width=1688
 target2.editor.x=-4
 target2.editor.y=-4
 =======
+=======
+>>>>>>> parent of d3635bc... Almost done
 target1.x=200
 target1.y=430
 target2.editor.height=1010
 target2.editor.width=840
 target2.editor.x=301
 target2.editor.y=970
+<<<<<<< HEAD
+>>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 target2.height=50
 target2.name=DrawingEditor
@@ -81,8 +96,13 @@ target3.y=430
 target4.editor.height=1010
 target4.editor.width=840
 <<<<<<< HEAD
+<<<<<<< HEAD
 target4.editor.x=548
 target4.editor.y=13
+=======
+target4.editor.x=840
+target4.editor.y=0
+>>>>>>> parent of d3635bc... Almost done
 =======
 target4.editor.x=840
 target4.editor.y=0
@@ -95,17 +115,23 @@ target4.type=ClassTarget
 target4.typeParameters=
 target4.width=100
 <<<<<<< HEAD
+<<<<<<< HEAD
 target4.x=460
 target4.y=30
 target5.editor.height=1006
 target5.editor.width=840
 target5.editor.x=840
 =======
+=======
+>>>>>>> parent of d3635bc... Almost done
 target4.x=340
 target4.y=200
 target5.editor.height=1010
 target5.editor.width=840
 target5.editor.x=0
+<<<<<<< HEAD
+>>>>>>> parent of d3635bc... Almost done
+=======
 >>>>>>> parent of d3635bc... Almost done
 target5.editor.y=0
 target5.height=50
