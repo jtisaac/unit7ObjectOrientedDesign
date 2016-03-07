@@ -34,46 +34,34 @@ public class ControlPanel extends JPanel
     public ControlPanel(DrawingPanel canvas)
     {
         this.canvas = canvas;
-        
-        //buttons:
         this.pickcolor = new JButton( "Pick Color" );
         this.add( pickcolor );
-        
         this.addcircle = new JButton( "Add Circle" );
         this.add( addcircle );
-        
-        this.addsquare = new JButton( " Add Square" );
+        addsquare = new JButton( " Add Square" );
         this.add( addsquare );
-        
-        //color panel:
         color = new JPanel();
         this.add(color);
-        
-        //Listener for buttons:
         listener = new ButtonListener();
-        
         this.pickcolor.addActionListener( listener );
+        //this.pickcolor.addActionMotionListener( listener );
         this.addcircle.addActionListener( listener );
+        //this.pickcolor.addMouseMotionListener( listener );
         this.pickcolor.addActionListener( listener );
         this.addsquare.addActionListener( listener );
-        
-        //Color c = this.canvas.getColor();//Color.WHITE; 
-        
+        //this.addsquare.addMouseMotionListener( listener );
+        Color c = this.canvas.getColor();//Color.WHITE; 
+        //this.canvas.pickColor(c);
     }
 
     public class ButtonListener implements ActionListener
     {
-        //public clickListener()
-        //{
-        //}
         public void actionPerformed( ActionEvent event )
         {
             if (event.getActionCommand().equals("Pick Color"))
             {
-                System.out.println("Picking color");
+                System.out.println("Picking Color");
                 canvas.pickColor();
-                Color currColor = canvas.getColor();
-                color.setBackground(currColor);
             }
             else if (event.getActionCommand().equals("Add Circle"))
             {
@@ -85,7 +73,6 @@ public class ControlPanel extends JPanel
                 System.out.println("Adding Square");
                 canvas.addSquare();
             }
-            canvas.repaint();
         }
     }
 }

@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+<<<<<<< HEAD
 import java.util.ArrayList;
 //import java.util.ArrayList.Size;
 import java.awt.geom.Point2D;
@@ -24,8 +25,10 @@ import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.lang.Math;
+=======
+>>>>>>> parent of d3635bc... Almost done
 /**
- * Write a description of class DrawingPanel here.
+ * Write a description of class DrawingPaneel here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -33,24 +36,15 @@ import java.lang.Math;
 public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private ArrayList<Shape> shapes;
-    private Color currColor;
-    private Dimension dim;
+    private int x;
 
-    private Shape currShape;
     /**
      * Default constructor for objects of class DrawingPaneel
      */
     public DrawingPanel()
     {
-        this.shapes = new ArrayList<Shape>(); 
-        //this.currColor = Color.blue;
-        this.setBackground(Color.WHITE);
-        this.dim = new Dimension(1000, 1000);
-
-        //adds clicking and motion listening
-        this.addMouseListener(new ClickListener());
-        this.addMouseMotionListener(new ClickListener());
+        // initialise instance variables
+        x = 0;
     }
 
     /**
@@ -67,7 +61,7 @@ public class DrawingPanel extends JPanel
     public Color getColor()
     {
         // put your code here
-        return currColor;
+        return Color.white;
     }
 
     /**
@@ -84,7 +78,7 @@ public class DrawingPanel extends JPanel
     public void pickColor()
     {
         // put your code here
-        currColor = JColorChooser.showDialog(this, "Pick Color", currColor);
+        
     }
 
     /**
@@ -101,7 +95,7 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         // put your code here
-        shapes.add(new Circle(new Point2D.Double(100,100), 100, currColor));
+        
     }
 
     /**
@@ -118,7 +112,7 @@ public class DrawingPanel extends JPanel
     public void addSquare()
     {
         // put your code here
-        shapes.add(new Square(new Point2D.Double(150,150), 100, currColor));
+        
     }
 
     /**
@@ -134,6 +128,7 @@ public class DrawingPanel extends JPanel
      */
     public void paintComponent(Graphics g)
     {
+<<<<<<< HEAD
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         for(int x = shapes.size()-1; x >= 0; x--)
@@ -153,8 +148,11 @@ public class DrawingPanel extends JPanel
             }
         }
 
+=======
+        // put your code here
+        
+>>>>>>> parent of d3635bc... Almost done
     }
-
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -179,51 +177,29 @@ public class DrawingPanel extends JPanel
         //{
         //  this.name = buttonName;
         //}
-        public boolean selected;
+        
         public void mouseClicked( MouseEvent event )
         {
-
+            //setPoint( event.getX(), event.getY() );
         }
-
         public void mouseEntered( MouseEvent event )
         {
         }
-
+        
         public void mouseExited( MouseEvent event )
         {
         }
-
+        
         public void mousePressed( MouseEvent event )
-        {   int x = event.getX();
-            int y = event.getY();
-            Point2D.Double coord = new Point2D.Double(x,y);
-            selected = false;
-            for (Shape ape: shapes)
-            {
-                if (ape.isInside(coord))
-                {
-                    selected = true;
-                    currShape = ape;
-                }
-
-            }
-            if (selected == false)
-            {
-                currShape = null;
-            }
-            //g2.unfill(currShape);
-            if (selected == true)
-            {
-                repaint();
-            }
+        {
         }
-
+        
         public void mouseReleased( MouseEvent event )
         {
         }
-
-        public void mouseDragged(MouseEvent event)
+        public void mouseDragged(MouseEvent e)
         {
+<<<<<<< HEAD
             int x = event.getX();
             int y = event.getY();
             Point2D.Double coord = new Point2D.Double(x,y);
@@ -247,10 +223,12 @@ public class DrawingPanel extends JPanel
                 
             }
             repaint();
+=======
+            
+>>>>>>> parent of d3635bc... Almost done
         }
-
-        public void mouseMoved(MouseEvent event)
+        public void mouseMoved(MouseEvent e)
         {
         }
-    }
+        }
 }
