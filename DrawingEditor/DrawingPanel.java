@@ -17,27 +17,14 @@ import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.ArrayList;
-//import java.util.ArrayList.Size;
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.lang.Math;
-=======
->>>>>>> parent of d3635bc... Almost done
-=======
->>>>>>> parent of d3635bc... Almost done
-=======
->>>>>>> parent of d3635bc... Almost done
-=======
->>>>>>> parent of d3635bc... Almost done
 /**
- * Write a description of class DrawingPaneel here.
+ * Write a description of class DrawingPanel here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -45,15 +32,24 @@ import java.lang.Math;
 public class DrawingPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private ArrayList<Shape> shapes;
+    private Color currColor;
+    private Dimension dim;
 
+    private Shape currShape;
     /**
      * Default constructor for objects of class DrawingPaneel
      */
     public DrawingPanel()
     {
-        // initialise instance variables
-        x = 0;
+        this.shapes = new ArrayList<Shape>(); 
+        //this.currColor = Color.blue;
+        this.setBackground(Color.WHITE);
+        this.dim = new Dimension(1000, 1000);
+
+        //adds clicking and motion listening
+        this.addMouseListener(new ClickListener());
+        this.addMouseMotionListener(new ClickListener());
     }
 
     /**
@@ -70,7 +66,7 @@ public class DrawingPanel extends JPanel
     public Color getColor()
     {
         // put your code here
-        return Color.white;
+        return currColor;
     }
 
     /**
@@ -87,7 +83,7 @@ public class DrawingPanel extends JPanel
     public void pickColor()
     {
         // put your code here
-        
+        currColor = JColorChooser.showDialog(this, "Pick Color", currColor);
     }
 
     /**
@@ -104,7 +100,7 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         // put your code here
-        
+        shapes.add(new Circle(new Point2D.Double(100,100), 100, currColor));
     }
 
     /**
@@ -121,7 +117,7 @@ public class DrawingPanel extends JPanel
     public void addSquare()
     {
         // put your code here
-        
+        shapes.add(new Square(new Point2D.Double(150,150), 100, currColor));
     }
 
     /**
@@ -137,15 +133,10 @@ public class DrawingPanel extends JPanel
      */
     public void paintComponent(Graphics g)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        for(int x = shapes.size()-1; x >= 0; x--)
+        for (Shape ape : shapes)
         {
-            Shape ape = shapes.get(x);
             if (currShape == null)
             {
                 ape.draw(g2, true);
@@ -159,24 +150,8 @@ public class DrawingPanel extends JPanel
                 ape.draw(g2, true);
             }
         }
-
-=======
-        // put your code here
-        
->>>>>>> parent of d3635bc... Almost done
-=======
-        // put your code here
-        
->>>>>>> parent of d3635bc... Almost done
-=======
-        // put your code here
-        
->>>>>>> parent of d3635bc... Almost done
-=======
-        // put your code here
-        
->>>>>>> parent of d3635bc... Almost done
     }
+
     /**
      * An example of a method - replace this comment with your own
      *    that describes the operation of the method
@@ -201,32 +176,51 @@ public class DrawingPanel extends JPanel
         //{
         //  this.name = buttonName;
         //}
-        
+        public boolean selected;
         public void mouseClicked( MouseEvent event )
         {
-            //setPoint( event.getX(), event.getY() );
+
         }
+
         public void mouseEntered( MouseEvent event )
         {
         }
-        
+
         public void mouseExited( MouseEvent event )
         {
         }
-        
+
         public void mousePressed( MouseEvent event )
-        {
+        {   int x = event.getX();
+            int y = event.getY();
+            Point2D.Double coord = new Point2D.Double(x,y);
+            selected = false;
+            for (Shape ape: shapes)
+            {
+                if (ape.isInside(coord))
+                {
+                    selected = true;
+                    currShape = ape;
+                }
+
+            }
+            if (selected == false)
+            {
+                currShape = null;
+            }
+            //g2.unfill(currShape);
+            if (selected == true)
+            {
+                repaint();
+            }
         }
-        
+
         public void mouseReleased( MouseEvent event )
         {
         }
-        public void mouseDragged(MouseEvent e)
+
+        public void mouseDragged(MouseEvent event)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             int x = event.getX();
             int y = event.getY();
             Point2D.Double coord = new Point2D.Double(x,y);
@@ -236,35 +230,20 @@ public class DrawingPanel extends JPanel
                 {
                     currShape = ape;
                     currShape.move(x,y);
-                    System.out.println("The cursor is inside the shape!");
+                    
                 }
                 else if (ape.isOnBorder(coord))
                 {
-                    System.out.println("The cursor is on the border!");
                     Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
                     currShape.setRadius(Math.pow(semi,0.5));
                 }
-                else
-                {
-                }
-                
+
+                repaint();
             }
-            repaint();
-=======
-            
->>>>>>> parent of d3635bc... Almost done
-=======
-            
->>>>>>> parent of d3635bc... Almost done
-=======
-            
->>>>>>> parent of d3635bc... Almost done
-=======
-            
->>>>>>> parent of d3635bc... Almost done
         }
-        public void mouseMoved(MouseEvent e)
+
+        public void mouseMoved(MouseEvent event)
         {
         }
-        }
+    }
 }
