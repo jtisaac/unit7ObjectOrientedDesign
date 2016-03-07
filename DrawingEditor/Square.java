@@ -19,7 +19,7 @@ public class Square extends Shape
     {
         // initialize instance variables
         super( center, radius, color);
-        rect = new Rectangle2D.Double(center.getX()-radius,center.getY()-radius,radius*2, radius*2);
+        rect = new Rectangle2D.Double(center.getX(),center.getY(),radius*2, radius*2);
     }
 
     /**

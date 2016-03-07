@@ -101,7 +101,8 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         // put your code here
-        shapes.add(new Circle(new Point2D.Double(100,100), 100, currColor));
+        Point2D.Double init = new Point2D.Double(100,100);
+        shapes.add(new Circle(init, 50, currColor));
     }
 
     /**
@@ -118,7 +119,8 @@ public class DrawingPanel extends JPanel
     public void addSquare()
     {
         // put your code here
-        shapes.add(new Square(new Point2D.Double(150,150), 100, currColor));
+        Point2D.Double init = new Point2D.Double(150,150);
+        shapes.add(new Square(init, 100, currColor));
     }
 
     /**
@@ -136,23 +138,28 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        for(int x = shapes.size()-1; x >= 0; x--)
-        {
-            Shape ape = shapes.get(x);
-            if (currShape == null)
-            {
-                ape.draw(g2, true);
-            }
-            else if (currShape == ape)
-            {
-                ape.draw(g2, false);//, currShape
-            }
-            else
-            {
-                ape.draw(g2, true);
-            }
-        }
+        //for(int x = shapes.size()-1; x >= 0; x--)
 
+        //    Shape ape = shapes.get(x);
+        if (shapes.size() > 0)
+        {
+            for (Shape ape : shapes)
+            {
+                if (currShape == null)
+                {
+                    ape.draw(g2, true);
+                }
+                else if (currShape == ape)
+                {
+                    ape.draw(g2, false);//, currShape
+                }
+                else
+                {
+                    ape.draw(g2, true);
+                }
+            }
+            repaint();
+        }
     }
 
     /**
@@ -244,7 +251,7 @@ public class DrawingPanel extends JPanel
                 else
                 {
                 }
-                
+
             }
             repaint();
         }

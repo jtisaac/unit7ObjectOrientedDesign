@@ -17,10 +17,11 @@ abstract public class Shape
     /**
      * Default constructor for objects of class Shape
      */
-    public Shape(Point2D.Double center, double radius,Color color)
+    public Shape(Point2D.Double offcenter, double radius,Color color)
     {
-        this.center = center;
         this.radius = radius;
+        this.center.setLocation(offcenter.getX()-this.radius,offcenter.getY()+this.radius);
+        
         this.color = color;
     }
 

@@ -19,7 +19,7 @@ public class Circle extends Shape
     {
         // initialize instance variables
         super( center, radius, color);
-        circle = new Ellipse2D.Double(center.getX()-radius,center.getY()-radius,radius*2, radius*2);
+        circle = new Ellipse2D.Double(center.getX(),center.getY(),radius*2, radius*2);
     }
 
     /**
