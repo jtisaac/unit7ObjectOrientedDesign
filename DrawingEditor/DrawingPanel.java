@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
 //import java.util.ArrayList.Size;
 import java.awt.geom.Point2D;
@@ -26,6 +27,8 @@ import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.lang.Math;
+=======
+>>>>>>> parent of d3635bc... Almost done
 =======
 >>>>>>> parent of d3635bc... Almost done
 =======
@@ -133,6 +136,7 @@ public class DrawingPanel extends JPanel
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         for(int x = shapes.size()-1; x >= 0; x--)
@@ -152,6 +156,10 @@ public class DrawingPanel extends JPanel
             }
         }
 
+=======
+        // put your code here
+        
+>>>>>>> parent of d3635bc... Almost done
 =======
         // put your code here
         
@@ -209,6 +217,7 @@ public class DrawingPanel extends JPanel
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             int x = event.getX();
             int y = event.getY();
             Point2D.Double coord = new Point2D.Double(x,y);
@@ -232,6 +241,9 @@ public class DrawingPanel extends JPanel
                 
             }
             repaint();
+=======
+            
+>>>>>>> parent of d3635bc... Almost done
 =======
             
 >>>>>>> parent of d3635bc... Almost done
