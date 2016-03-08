@@ -3,14 +3,14 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 /**
- * Write a description of class DrawingEditor here.
+ * This is where we set up the window, as well as use the borderLayout class to place things where they need to be.
  * border layout class
  * @author (Joseph Isaac) 
  * @version (2/29/15)
  */
 public class DrawingEditor extends JFrame
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** Setting constant variables up */
     
     
     
@@ -22,9 +22,7 @@ public class DrawingEditor extends JFrame
     public DrawingEditor()
     {
         
-        //set size
-        //default close
-        //set visible
+        
         String title = "Drawing Editor";
         this.setTitle(title);
         DrawingPanel canvas = new DrawingPanel();
@@ -37,15 +35,9 @@ public class DrawingEditor extends JFrame
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * This method runs the drawing editor.
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+
      */
     public static void main()
     {

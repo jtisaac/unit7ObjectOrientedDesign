@@ -14,14 +14,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 /**
- * Write a description of class ControlPanel here.
+ * The lower pane where shape colors are set and shapes are added
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Joseph Isaac) 
+ * @version (FINAL)
  */
 public class ControlPanel extends JPanel
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** Setting up variables and listeners */
     private JButton pickcolor;
     private JButton addcircle;
     private JButton addsquare;
@@ -56,16 +56,10 @@ public class ControlPanel extends JPanel
         this.addcircle.addActionListener( listener );
         
         this.addsquare.addActionListener( listener );
-        
-        //Color c = this.canvas.getColor();//Color.WHITE; 
-        
     }
 
     public class ButtonListener implements ActionListener
     {
-        //public clickListener()
-        //{
-        //}
         public void actionPerformed( ActionEvent event )
         {
             if (event.getActionCommand().equals("Pick Color"))

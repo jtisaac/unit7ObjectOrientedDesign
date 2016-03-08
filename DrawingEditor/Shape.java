@@ -2,20 +2,19 @@ import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.*;
-//import java.awt.geom.Rectangle2D.Double;
 import java.lang.Math;
 import java.awt.*;
 import java.awt.geom.*;
 import java.lang.Math;
 /**
- * Write a description of class Shape here.
+ * Parent class of circle and square.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Joseph Isaac) 
+ * @version (FINAL)
  */
 abstract public class Shape
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** Variables for the shape */
     private Point2D.Double center;
     private double radius;
     private Color color;
@@ -30,26 +29,17 @@ abstract public class Shape
         System.out.println(offcenter.getX());
         System.out.println(offcenter.getY());
         System.out.println(radius);
-        //this.center = offcenter; 
         this.radius = radius;
         this.color = color;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+
+     * @return    center (or really the upper left-hand corner of the shape)
      */
 
-    public Point2D.Double getCenter()//Point2D.Double getCenter()
+    public Point2D.Double getCenter()
     {
-        // put your code here
         return center;
     }
 
@@ -59,32 +49,15 @@ abstract public class Shape
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @return    radius
      */
     public double getRadius()
     {
-        // put your code here
         return radius;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Moves the center of the shape
      */
     public void move(double x , double y)
     {
@@ -93,15 +66,7 @@ abstract public class Shape
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Sets radius of shape
      */
     public void setRadius(double r)
     {
@@ -109,46 +74,11 @@ abstract public class Shape
 
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
+
     abstract public boolean isInside(Point2D.Double point);
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
     abstract public boolean isOnBorder(Point2D.Double point);
-    
-        
-    
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
     abstract public void draw(Graphics2D g2, boolean filled);
 
 }

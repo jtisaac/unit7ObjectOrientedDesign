@@ -24,112 +24,70 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.lang.Math;
 /**
- * Write a description of class DrawingPanel here.
+ *The area of the window where the shapes are drawn.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Joseph Isaac) 
+ * @version (FINAL)
  */
 public class DrawingPanel extends JPanel
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** The arraylist of shapes, color, and the activeshape */
     private ArrayList<Shape> shapes;
     private Color currColor;
     private Dimension dim;
 
     private Shape currShape;
     /**
-     * Default constructor for objects of class DrawingPaneel
+     * Default constructor for objects of class DrawingPanel
      */
     public DrawingPanel()
     {
         this.shapes = new ArrayList<Shape>(); 
-        //this.currColor = Color.blue;
         this.setBackground(Color.WHITE);
         this.dim = new Dimension(1000, 1000);
-
-        //adds clicking and motion listening
         this.addMouseListener(new ClickListener());
         this.addMouseMotionListener(new ClickListener());
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * Fetches color
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @return    color of the panel
      */
     public Color getColor()
     {
-        // put your code here
         return currColor;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * Picks color
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @post    Color is chosen
+     * @return    none
      */
     public void pickColor()
     {
-        // put your code here
         currColor = JColorChooser.showDialog(this, "Pick Color", currColor);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
+     * Adds a circle
      *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
      */
     public void addCircle()
     {
-        // put your code here
         shapes.add(new Circle(new Point2D.Double(100,100), 50, currColor));
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+    /** Adds a square
      */
     public void addSquare()
     {
-        // put your code here
         shapes.add(new Square(new Point2D.Double(150,150), 50, currColor));
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Paints the shapes in the arraylist
      */
     public void paintComponent(Graphics g)
     {
@@ -143,7 +101,7 @@ public class DrawingPanel extends JPanel
             }
             else if (currShape == ape)
             {
-                ape.draw(g2, false);//, currShape
+                ape.draw(g2, false);
             }
             else
             {
@@ -153,29 +111,16 @@ public class DrawingPanel extends JPanel
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Fetches best size
+     * @return    dimension of the best size
      */
     public Dimension getPreferredSize()
     {
-        Dimension dim = new Dimension(100,100);// put your code here
+        Dimension dim = new Dimension(100,100);
         return dim;
     }
     public class ClickListener implements MouseListener, MouseMotionListener
     {
-        //private String name;
-
-        //public ClickListener(String buttonName)
-        //{
-        //  this.name = buttonName;
-        //}
         public boolean selected;
         public void mouseClicked( MouseEvent event )
         {
@@ -194,16 +139,11 @@ public class DrawingPanel extends JPanel
                 }
                 else if (ape.isOnBorder(coord) || alreadytoggled == false)
                 {
-                    //while (ape.isOnBorder(coord) == true)
-                    //{//Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
-                        //currShape.setRadius(Math.pow(semi,0.5));
-                        
                         System.out.println("The cursor is on the border!");
                         double r = ape.getRadius();
                         ape.setRadius(r+1);
                         repaint();
                         alreadytoggled = false;
-                    //}
                 }
                 
                 repaint();
@@ -231,7 +171,6 @@ public class DrawingPanel extends JPanel
             int x = event.getX();
             int y = event.getY();
             Point2D.Double coord = new Point2D.Double(x,y);
-            
             for (Shape ape: shapes)
             {
                 boolean isinside = ape.isInside(coord);
@@ -239,26 +178,18 @@ public class DrawingPanel extends JPanel
                 {
                     currShape = ape;
                     currShape.move(x,y);
-
                 }
                 else if (ape.isOnBorder(coord))
                 {
-                    //while (ape.isOnBorder(coord) == true)
-                    //{//Double semi = new Double(Math.pow(currShape.getCenter().getX()-x,2)+Math.pow(currShape.getCenter().getY()-y,2));
-                        //currShape.setRadius(Math.pow(semi,0.5));
-                        
                         System.out.println("The cursor is on the border!");
                         double r = ape.getRadius();
                         ape.setRadius(r+1);
                         repaint();
-                        
-                    //}
                 }
                 isinside = false;
                 repaint();
             }
         }
-
         public void mouseMoved(MouseEvent event)
         {
         }
